@@ -6,6 +6,7 @@ namespace JsonExample2024
 {
     internal class Program
     {
+       
         public static string BasicSerializtionExmaple(Student student)
         {
             string json = JsonSerializer.Serialize(student);
@@ -26,6 +27,22 @@ namespace JsonExample2024
             Console.WriteLine("With indented option:"  );
             Console.WriteLine(json);
             return json;
+        }
+
+
+        public static string SerializeMonkey(Monkey monkey)
+        {
+            string json = JsonSerializer.Serialize<Monkey>(monkey);   
+            return json;
+        }
+        public static void MonkeyDeserialize(string json)
+        {
+            Monkey monkey = JsonSerializer.Deserialize<Monkey>(json);
+        }
+        public static void AddMonkey(Monkey monkey)
+        {
+            string json = SerializeMonkey(monkey);
+           MonkeyDeserialize 
         }
 
         public static void BasicDeserializtion(string str)
